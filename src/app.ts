@@ -8,7 +8,11 @@ import { nanoid } from 'nanoid';
 const app = express();
 
 app.use(cors());
-app.use(express.json());
+app.use(
+  express.urlencoded({
+    extended: true,
+  })
+);
 
 app.post('/api/partners', (req, res) => {
   const { firstname, lastname, shopname, shopemailaddress } = req.body;
